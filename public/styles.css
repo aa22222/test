@@ -1,0 +1,44 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --hue: 0; /* rainbow colors */
+  --saturation: 50%;
+  --foreground-color: hsl(var(--hue), var(--saturation), 100%);
+  --background-color: hsl(var(--hue), var(--saturation), 50%);
+}
+
+body {
+  margin: 0;
+  background-color: var(--background-color);
+}
+
+.ball {
+  --x: 50;
+  --y: 50;
+
+  position: absolute; 
+  background-color: var(--foreground-color);
+  /* vh and vw define coords based on window size */ 
+  /* (25, 75) is 25% to the left, 75% down */
+  top: calc(var(--y) * 1vh);
+  left: calc(var(--x) * 1vw);
+  border-radius: 50%; /* circle */
+  transform: translate(-50%, -50%); /* set init-position @ center */
+  width: 2.5vw;
+  height: 2.5vw;
+  cursor: grab;
+}
+
+.ground {
+  --x: 0;
+  --y: 90;
+
+  position: absolute;
+  background-color: var(--foreground-color);
+  top: calc(var(--y) * 1vh);
+  left: calc(var(--x) * 1vw);
+  width: 100vw;
+  height: 9vw;
+}
